@@ -8,7 +8,7 @@ const upload = multer({storage:storage});
 // const { protect } = require('../middleware/auth');
 
 router.post('/',upload.single("profileImage"),register);
-router.post('/login',login);
+router.post('/userLoging',login);
 router.get('/profile/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id).select('username email profileImage'); // select only specific fields
@@ -20,9 +20,5 @@ router.get('/profile/:id', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
-
-
-
-
 
 module.exports = router;
