@@ -51,7 +51,7 @@ const register = asyncHandler(async (req, res) => {
     res.status(201).json({ message: "User registered successfully", user });
 });
 
-// Login
+// Login the user
 const login = asyncHandler(async (req, res) => {
     const { username, password } = req.body;
     const JWT_SECRET = 'manuss';
