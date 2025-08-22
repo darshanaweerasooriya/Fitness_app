@@ -32,8 +32,18 @@ const MealType = Object.freeze({
   });
 
   const targetList = Object.freeze({
-    BodyBuilding:'Body building',
+    Flexibility:'Flexibility',
     WeightLoss:'Weight loss'
   })
 
-  module.exports = {MealType,rating,professionalType,appointmentStatus,genderList,targetList};
+  const fitnessLevel =  Object.freeze({
+    Beginner:'Beginner',
+    Intermediate: 'Intermediate',
+    Advanced:'Advanced'
+  })
+
+  const dietplanDetail = Object.freeze({
+    Yes: 'Yes',
+    No: 'No'
+  })
+  module.exports = {MealType,rating,professionalType,appointmentStatus,genderList,targetList, fitnessLevel,dietplanDetail};

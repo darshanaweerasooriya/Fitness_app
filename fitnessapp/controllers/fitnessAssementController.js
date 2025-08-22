@@ -4,7 +4,7 @@ const { json } = require('express');
 
 const createAssessment = asyncHandler(async (req, res) => {
   const userId = req.user.id;
-  const { age, height, weight, gender, target, dailyStatus, targetDate } = req.body;
+  const { age, height, weight, gender, target, fitnessLevel, dietplan,  dailyStatus, targetDate } = req.body;
 
   const dailyCalories = gender === 'Male'
     ? 10 * weight + 6.25 * height - 5 * age + 5
@@ -22,6 +22,8 @@ const createAssessment = asyncHandler(async (req, res) => {
     weight,
     gender,
     target,
+    fitnessLevel,
+    dietplan,
     dailyStatus,
     targetDate,
     result
