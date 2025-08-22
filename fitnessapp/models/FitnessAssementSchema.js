@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { genderList, targetList } = require('../enums/enumList');
+const { genderList, targetList, fitnessLevel, dietplanDetail } = require('../enums/enumList');
 
 const FitnessAssementSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
@@ -8,6 +8,8 @@ const FitnessAssementSchema = new mongoose.Schema({
   weight: { type: Number },
   gender: { type: String, enum: Object.values(genderList), required: true },
   target: { type: String, enum: Object.values(targetList), required: true },
+  fitnessLevel: { type: String, enum: Object.values(fitnessLevel), required: true},
+  dietplan: { type: String, enum: Object.values(dietplanDetail), required: true},
   dailyStatus: { type: String },
   targetDate: { type: Date },
   result: {
@@ -17,6 +19,6 @@ const FitnessAssementSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-const FitnessAssetment = mongoose.model('FitnessAssetment', FitnessAssementSchema);
+const FitnessAssetment = mongoose.model('UserFitnessAssetment', FitnessAssementSchema);
 
 module.exports = FitnessAssetment;
