@@ -18,6 +18,7 @@ const appointmentRoutes = require('./routes/appoinmentRoutes');
 const professionalRoutes = require('./routes/professionalRoutes');
 const fitnessAssessRoutes = require('./routes/fitnessAssessRoutes');
 const messageRoutes = require('./routes/messageRoutes');
+const gymRoutes = require('./routes/gymAddRoutel');
 
 const app = express();
 const server = http.createServer(app); // Use server for Socket.io
@@ -46,6 +47,7 @@ app.use('/api/appointment', cors(), appointmentRoutes);
 app.use('/api/professional', cors(), professionalRoutes);
 app.use('/api/fitnessassess', cors(), fitnessAssessRoutes);
 app.use('/api/message', cors(), messageRoutes);
+app.use('/api/gyms', cors(), gymRoutes);
 
 // Port config
 const PORT = process.env.PORT || 3001;
