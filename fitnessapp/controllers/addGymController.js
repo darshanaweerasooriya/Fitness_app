@@ -20,3 +20,15 @@ exports.addGym = async (req, res) => {
         res.status(500).json({message:"error", error:err.message});
      }
  } ;
+
+
+ // getting gyms 
+
+ exports.getAllGyms = async (req, res) =>{
+    try {
+        const gyms = await Gym.find();
+        res.json(gyms);
+    }catch (err){
+        res.status(500).json({message: "Server Eorro", error:err.message});
+    }
+ }
