@@ -103,9 +103,56 @@ const getPlan = asyncHandler(async(req,res) =>{
     });
 
   }  else if(req.query.type === 'exercise'){
-        const plan = assessment.target === 'Body building'
-        ?['Strength training 5x/week', 'Compound lifts', 'Progressive overload']
-        :['HIIT 3x/week', 'Cardio + abs', 'Walking daily'];
+       let plan =[];
+
+       // check
+       if(assessment.target === 'Flexibility'){
+        if(assessment.fitnessLevel === 'Beginner'){
+          plan =[
+            'Full-body workout 3x/week',
+            'Basic compound lifts (squat, push-up, pull-up)',
+            'Focus on form and consistency'
+          ];
+        } else if (assessment.fitnessLevel==='Intermediate')
+        {
+          plan=[
+            'Strength training 4x/week',
+            'Split routines (upper/lower)',
+            'Progressive overload'
+          ];
+        }else if  (assessment.fitnessLevel==='Advanced'){
+          plan=[
+             'Strength training 5-6x/week',
+              'Push/Pull/Legs split',
+              'Advanced techniques (drop sets, supersets)'
+          ];
+        }
+       }else if (assessment.target === 'Weight loss'){
+        if(assessment.fitnessLevel=== 'Beginner'){
+          plan =[
+            'Cardio (walking/jogging) 4x/week',
+            'Bodyweight exercises',
+            'Short HIIT sessions'
+          ];
+        }else if (assessment.fitnessLevel === 'Intermediate'){
+          plan =[
+            'HIIT 3x/week',
+            'Strength training 3x/week',
+            'Daily step goal (10k+ steps)'
+          ];
+
+        }else if (assessment.fitnessLevel === 'Advanced'){
+          plan =[
+             'HIIT 4x/week',
+              'Strength + cardio hybrid program',
+              'Endurance circuits'
+          ]
+        }
+       }else {
+        plan = [
+          'General fitness: 30 mins daily activity', 'Stretching', 'Walks'
+        ]
+       }
 
         return res.json({type:'exercise',plan});
     }
