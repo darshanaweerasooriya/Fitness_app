@@ -20,6 +20,7 @@ const fitnessAssessRoutes = require('./routes/fitnessAssessRoutes');
 const messageRoutes = require('./routes/messageRoutes');
 const gymRoute = require('./routes/gymRoute');
 const coachRoute = require('./routes/coachesRouter');
+const coachDetailROute = require('./routes/coachDetailRoutes');
 
 const app = express();
 const server = http.createServer(app); // Use server for Socket.io
@@ -50,6 +51,7 @@ app.use('/api/fitnessassess', cors(), fitnessAssessRoutes);
 app.use('/api/message', cors(), messageRoutes);
 app.use('/api/gyms', cors(), gymRoute);
 app.use('/api/coaches', cors(),coachRoute);
+app.use('/api/coachdetaails', cors(), coachDetailROute);
 
 // Port config
 const PORT = process.env.PORT || 3001;
