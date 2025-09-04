@@ -4,7 +4,7 @@ const Feedback = require("../models/Feedback");
 const sendFeedback = asyncHandler(async (req, res) => {
     try {
         const userId = req.user.id;
-        const { message, rating } = req.body;
+        const { message,  comments, rating } = req.body;
 
         if(!message || !rating) {
             return res.status(400).json({ message: 'Message and rating are required' });
@@ -13,6 +13,7 @@ const sendFeedback = asyncHandler(async (req, res) => {
         const feedback = new Feedback({
             userId,
             message,
+            comments,
             rating
         });
 
